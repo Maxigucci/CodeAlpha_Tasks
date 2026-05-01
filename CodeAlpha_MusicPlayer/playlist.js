@@ -1,0 +1,15 @@
+export default [
+  {src:"./songs/aberrantrealities-organic-flow-1015-remastered-485950.mp3", title:"Organic Flow [10/15]", artist:"AberrantRealities", artwork:"./artworks/organicFlow.jpg"},
+  {src:"./tunetank-inspiring-cinematic-music-409347.mp3", title:"Inspiring Cinematic", artist:"Tunetank", artwork:"./artworks/inspiringCinematic.jpg"},
+  {src:"./songs/domartistudios-magical-wizard-school-orchestral-fantasy-488126.mp3", title:"Magical Wizard School Orchestral Fantasy", artist:"DomartiStudios", artwork:"./artwork/magicalWizard.png"},
+  {src:"./songs/fassounds-escape-your-love-upbeat-fashion-pop-dance-412230.mp3", title:"Escape Your Love", artist:"Fassounds", artwork:"./artworks/escapeYourLove.jpg"},
+  {src:"./songs/freemusiclab-charming-phonk-i-free-background-music-i-free-music-lab-release-513626.mp3", title:"Charming Phonk", artist:"FreeMusicLab", artwork:"./artworks/charmingPhonk.png"},
+  {src:"./songs/kontraa-no-sleep-hiphop-music-473847.mp3", title:"No Sleep", artist:"Kontraa", artwork:"./artworks/noSleep.jpg"},
+  {src:"./songs/", title:"Epic", artist:"Kornevmusic", artwork:"./artworks/epic.jpg"},
+  {src:"./songs/kornevmusic-upbeat-happy-corporate-487426.mp3", title:"Upbeat Happy Corporate", artist:"Kornevmusic", artwork:"./artworks/upbeatHappyCorporate.jpg"},
+  {src:"./songs/giorgiovitte-berry-groovy-bass-trap-476603.mp3", title:"Berry", artist:"GiorgoVitté", artwork:"./artworks/Berry.jpg"},
+  {src:"./songs/loksii-bliss-wave-179190.mp3", title:"Bliss Wave", artist:"Loksii", artwork:"./artworks/blissWave.jpg"},
+  {src:"./songs/kontraa-water-afro-pop-music-445661.mp3", title:"Water", artist:"Kontraa", artwork:"./artworks/water.jpg"},
+  {src:"./songs/kontraa-into-the-night-uk-drill-music-20928.mp3", title:"Into The Night", artist:"Kontraa", artwork:"./artworks/intoTheNight.png"},
+  {src:"./songs/tunetank-uplifting-pop-349696.mp3", title:"Uplifting Pop", artist:"Tunetank", artwork:"./artworks/upliftingPop.jpg"},
+];

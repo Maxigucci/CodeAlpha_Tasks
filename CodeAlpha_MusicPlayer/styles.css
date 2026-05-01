@@ -1,0 +1,4 @@
+#mainBox{
+  width: clamp(30px,100vw,760px);
+  
+}
