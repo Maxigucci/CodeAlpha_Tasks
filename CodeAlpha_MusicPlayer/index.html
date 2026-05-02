@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Music Player</title>
     <style>
       *{
@@ -15,15 +16,43 @@
       }
       body{
         display: flex;
+        width: 100%;
+        padding: 0 1.5rem;
       }
     </style>
   </head>
   <body>
     <div id="mainBox">
-      
+      <img id="img" src="./artworks/blissWave.jpg" />
+      <div id="details">
+        <div id="info">
+          <div id="title">Bliss Wave</div>
+          <div id="artist">Loskii</div>
+        </div>
+        <div id="options">
+          <span class="material-icons">volume_up</span>
+          <span class="material-icons">queue_music</span>
+        </div>
+        <div id="sliderBox">
+          <input type="range" />
+          <div id="timerBox">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div id="controls">
+          <span class="material-icons">shuffle</span>
+          <div id="controls-main">
+            <span class="material-icons">skip_previous</span>
+            <span class="material-icons">play_arrow</span>
+            <span class="material-icons">skip_next</span>
+          </div>
+          <span class="material-icons">repeat</span>
+        </div>
+      </div>
     </div>
     
     <script type="module" src="./script.js" ></script>
-    <script src="./Vibrant.min.js" ></script>
+    <script src="./color-thief.global.js" ></script>
   </body>
 </html>

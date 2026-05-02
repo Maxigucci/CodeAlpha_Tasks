@@ -1,23 +1,27 @@
 import playlist from "./playlist.js";
 
-const mainBox = document.getElementById("mainBox");
-const img = new Image();
-img.src = "./artworks/water.jpg";
+const img = document.getElementById('img');
+const mainBox = document.getElementById('mainBox');
 
-function getColors(img) {
-  await img.decode(); // ensures image is fully loaded
+img.addEventListener('load', () => {
+  // Single dominant color
+  const color = ColorThief.getColorSync(img);
+  console.log(color.hex());   // '#a3c4bc'
+  console.log(color.css());   // 'rgb(163, 196, 188)'
 
-  const vibrant = new Vibrant(img);
-  const palette = await Vibrant.from(img).getPalette();
+  // Palette
+  const palette = ColorThief.getPaletteSync(img, { colorCount: 5 });
+  palette.forEach(c => console.log(c.hex()));
+});
 
-  const color1 = palette.Vibrant?.hex;
-  const color2 = palette.Muted?.hex;
-
-mainBox.style.background=`linear-gradient(to bottom, ${color1} 0%, ${color2} 100%)`;
-  return { color1, color2 };
+// In case the image is already cached and 'load' already fired
+if (img.complete) {
+  const color = ColorThief.getColorSync(img);
+  console.log(color.hex());
+  
+  const palette = ColorThief.getPaletteSync(img, { colorCount: 5 });
+  palette.forEach(c => console.log(c.hex()));
+  
+  mainBox.style.background=`linear-gradient(to bottom, grey 25%, ${palette[0].hex()} 100%)`;
 }
-
-getColors(img)
-
-
-
+console.log(window.innerHeight)
