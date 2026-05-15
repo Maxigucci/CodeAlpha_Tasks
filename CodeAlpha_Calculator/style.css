@@ -1,0 +1,359 @@
+/* ─── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Theme Tokens ───────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:            #0e0e0e;
+  --shell-bg:      #0e0e0e;
+  --calc-bg:       #1a1a1a;
+  --display-bg:    #141414;
+  --display-border:#2a2a2a;
+  --expr-color:    #555;
+  --result-color:  #f0f0f0;
+  --utility-bg:    #2e2e2e;
+  --utility-bg-h:  #3e3e3e;
+  --utility-color: #e0e0e0;
+  --digit-bg:      #242424;
+  --digit-bg-h:    #323232;
+  --digit-color:   #e8e8e8;
+  --op-bg:         #e07b30;
+  --op-bg-h:       #f08c3a;
+  --op-color:      #fff;
+  --op-active-bg:  #fff;
+  --op-active-color:#e07b30;
+  --eq-bg:         #e07b30;
+  --eq-bg-h:       #f08c3a;
+  --eq-color:      #fff;
+  --pill-bg:       #2a2a2a;
+  --pill-active-bg:#e07b30;
+  --pill-color:    #888;
+  --pill-active-color:#fff;
+  --label-color:   #444;
+  --hint-color:    #333;
+  --hint-key-color:#555;
+  --shadow:        0 32px 80px rgba(0,0,0,0.6);
+  --calc-radius:   24px;
+}
+
+[data-theme="light"] {
+  --bg:            #ebebeb;
+  --shell-bg:      #ebebeb;
+  --calc-bg:       #d4d4d4;
+  --display-bg:    #fafafa;
+  --display-border:#c8c8c8;
+  --expr-color:    #aaa;
+  --result-color:  #1a1a1a;
+  --utility-bg:    #bebebe;
+  --utility-bg-h:  #adadad;
+  --utility-color: #333;
+  --digit-bg:      #f0f0f0;
+  --digit-bg-h:    #e2e2e2;
+  --digit-color:   #222;
+  --op-bg:         #e07b30;
+  --op-bg-h:       #c96b22;
+  --op-color:      #fff;
+  --op-active-bg:  #fff;
+  --op-active-color:#e07b30;
+  --eq-bg:         #e07b30;
+  --eq-bg-h:       #c96b22;
+  --eq-color:      #fff;
+  --pill-bg:       #c8c8c8;
+  --pill-active-bg:#e07b30;
+  --pill-color:    #888;
+  --pill-active-color:#fff;
+  --label-color:   #aaa;
+  --hint-color:    #bbb;
+  --hint-key-color:#b0b0b0;
+  --shadow:        0 24px 60px rgba(0,0,0,0.15);
+  --calc-radius:   24px;
+}
+
+[data-theme="neon"] {
+  --bg:            #060610;
+  --shell-bg:      #060610;
+  --calc-bg:       #0d0d1f;
+  --display-bg:    #080814;
+  --display-border:#1a1a3a;
+  --expr-color:    #3a3a6a;
+  --result-color:  #e0f0ff;
+  --utility-bg:    #12122a;
+  --utility-bg-h:  #1c1c3a;
+  --utility-color: #a0a8ff;
+  --digit-bg:      #0e0e22;
+  --digit-bg-h:    #18183a;
+  --digit-color:   #d0d8ff;
+  --op-bg:         #7c3aed;
+  --op-bg-h:       #6d28d9;
+  --op-color:      #fff;
+  --op-active-bg:  #e040fb;
+  --op-active-color:#fff;
+  --eq-bg:         linear-gradient(135deg, #7c3aed, #e040fb);
+  --eq-bg-h:       linear-gradient(135deg, #6d28d9, #c020db);
+  --eq-color:      #fff;
+  --pill-bg:       #12122a;
+  --pill-active-bg:#7c3aed;
+  --pill-color:    #3a3a6a;
+  --pill-active-color:#fff;
+  --label-color:   #2a2a5a;
+  --hint-color:    #1a1a3a;
+  --hint-key-color:#2a2a5a;
+  --shadow:        0 32px 80px rgba(100,50,255,0.25);
+  --calc-radius:   24px;
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  font-family: 'DM Mono', monospace;
+  background: var(--bg);
+  transition: background 0.35s ease;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ─── Shell ──────────────────────────────────────────── */
+.shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 340px;
+}
+
+/* ─── Theme Bar ──────────────────────────────────────── */
+.theme-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.theme-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--label-color);
+  transition: color 0.35s;
+  white-space: nowrap;
+}
+
+.theme-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  background: var(--pill-bg);
+  color: var(--pill-color);
+  transition: background 0.25s, color 0.25s, transform 0.1s;
+  letter-spacing: 0.04em;
+}
+
+.pill:hover { opacity: 0.85; }
+.pill:active { transform: scale(0.95); }
+
+.pill.active {
+  background: var(--pill-active-bg);
+  color: var(--pill-active-color);
+}
+
+/* ─── Calculator Card ────────────────────────────────── */
+.calculator {
+  width: 100%;
+  background: var(--calc-bg);
+  border-radius: var(--calc-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: background 0.35s, box-shadow 0.35s;
+}
+
+/* ─── Display ────────────────────────────────────────── */
+.display {
+  background: var(--display-bg);
+  border-bottom: 1px solid var(--display-border);
+  padding: 24px 24px 20px;
+  text-align: right;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  transition: background 0.35s, border-color 0.35s;
+}
+
+/* Big row — ongoing expression */
+.expression {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 700;
+  color: var(--result-color);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  max-width: 100%;
+  transition: color 0.35s;
+}
+
+/* Small row — evaluated-so-far / result preview */
+.result {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--expr-color);
+  min-height: 20px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.35s;
+}
+
+.expression.bump {
+  animation: bump 0.12s ease-out;
+}
+
+@keyframes bump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Keypad ─────────────────────────────────────────── */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--display-border);
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  height: clamp(68px, 16vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.18s, color 0.18s, transform 0.08s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Ripple on press */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.btn:active::after { opacity: 1; }
+.btn:active { transform: scale(0.95); }
+
+/* Utility buttons */
+.btn-utility {
+  background: var(--utility-bg);
+  color: var(--utility-color);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(13px, 3.5vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.btn-utility:hover { background: var(--utility-bg-h); }
+
+/* Digit buttons */
+.btn-digit {
+  background: var(--digit-bg);
+  color: var(--digit-color);
+}
+.btn-digit:hover { background: var(--digit-bg-h); }
+
+/* Zero — single cell now */
+.btn-zero {
+  justify-content: center;
+}
+
+/* Operator buttons */
+.btn-operator {
+  background: var(--op-bg);
+  color: var(--op-color);
+  font-size: clamp(20px, 5vw, 26px);
+}
+.btn-operator:hover { background: var(--op-bg-h); }
+
+.btn-operator.active {
+  background: var(--op-active-bg);
+  color: var(--op-active-color);
+}
+
+/* Equals */
+.btn-equals {
+  background: var(--eq-bg);
+  color: var(--eq-color);
+  font-size: clamp(20px, 5vw, 26px);
+}
+.btn-equals:hover { background: var(--eq-bg-h); }
+
+/* Neon glow on operators for neon theme */
+[data-theme="neon"] .btn-operator,
+[data-theme="neon"] .btn-equals {
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.03);
+}
+
+[data-theme="neon"] .btn-equals {
+  background: linear-gradient(135deg, #7c3aed, #e040fb);
+}
+
+[data-theme="neon"] .btn-equals:hover {
+  background: linear-gradient(135deg, #6d28d9, #c020db);
+}
+
+[data-theme="neon"] .expression {
+  text-shadow: 0 0 30px rgba(160, 180, 255, 0.4);
+}
+
+/* ─── Keyboard Hint ──────────────────────────────────── */
+.keyboard-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.keyboard-hint span {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hint-color);
+  transition: color 0.35s;
+}
+
+.hint-keys {
+  color: var(--hint-key-color) !important;
+  font-size: 10px !important;
+}

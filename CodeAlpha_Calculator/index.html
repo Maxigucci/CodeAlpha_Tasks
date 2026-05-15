@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+
+    <div class="theme-bar">
+      <span class="theme-label">Theme</span>
+      <div class="theme-pills">
+        <button class="pill active" data-theme-target="dark">Dark</button>
+        <button class="pill" data-theme-target="light">Light</button>
+        <button class="pill" data-theme-target="neon">Neon</button>
+      </div>
+    </div>
+
+    <div class="calculator">
+
+      <div class="display">
+        <div class="expression" id="expression">0</div>
+        <div class="result" id="result">&nbsp;</div>
+      </div>
+
+      <div class="keypad">
+        <!-- Row 1 -->
+        <button class="btn btn-utility" data-action="clear">AC</button>
+        <button class="btn btn-utility" data-action="sign">+/−</button>
+        <button class="btn btn-utility" data-action="percent">%</button>
+        <button class="btn btn-operator" data-action="operator" data-value="÷">÷</button>
+
+        <!-- Row 2 -->
+        <button class="btn btn-digit" data-action="digit" data-value="7">7</button>
+        <button class="btn btn-digit" data-action="digit" data-value="8">8</button>
+        <button class="btn btn-digit" data-action="digit" data-value="9">9</button>
+        <button class="btn btn-operator" data-action="operator" data-value="×">×</button>
+
+        <!-- Row 3 -->
+        <button class="btn btn-digit" data-action="digit" data-value="4">4</button>
+        <button class="btn btn-digit" data-action="digit" data-value="5">5</button>
+        <button class="btn btn-digit" data-action="digit" data-value="6">6</button>
+        <button class="btn btn-operator" data-action="operator" data-value="−">−</button>
+
+        <!-- Row 4 -->
+        <button class="btn btn-digit" data-action="digit" data-value="1">1</button>
+        <button class="btn btn-digit" data-action="digit" data-value="2">2</button>
+        <button class="btn btn-digit" data-action="digit" data-value="3">3</button>
+        <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+
+        <!-- Row 5 -->
+        <button class="btn btn-digit btn-zero" data-action="digit" data-value="0">0</button>
+        <button class="btn btn-digit" data-action="decimal">.</button>
+        <button class="btn btn-utility btn-backspace" data-action="backspace">DEL</button>
+        <button class="btn btn-equals" data-action="equals">=</button>
+      </div>
+
+    </div>
+
+    <div class="keyboard-hint">
+      <span>Keyboard supported</span>
+      <span class="hint-keys">0–9 &nbsp;·&nbsp; + − * / &nbsp;·&nbsp; Enter &nbsp;·&nbsp; Esc &nbsp;·&nbsp; ⌫</span>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

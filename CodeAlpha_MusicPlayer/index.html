@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Music Player</title>
-    <style>
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,body{
-        height: 100%;
-      }
-      body{
-        display: flex;
-        width: 100%;
-        padding: 0 1.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="mainBox">
-      <img id="img" src="./artworks/blissWave.jpg" />
-      <div id="details">
-        <div id="info">
-          <div id="title">Bliss Wave</div>
-          <div id="artist">Loskii</div>
-        </div>
-        <div id="options">
-          <span class="material-icons">volume_up</span>
-          <span class="material-icons">queue_music</span>
-        </div>
-        <div id="sliderBox">
-          <input type="range" />
-          <div id="timerBox">
-            <span id="currentTime">0:00</span>
-            <span id="duration">0:00</span>
-          </div>
-        </div>
-        <div id="controls">
-          <span class="material-icons">shuffle</span>
-          <div id="controls-main">
-            <span class="material-icons">skip_previous</span>
-            <span class="material-icons">play_arrow</span>
-            <span class="material-icons">skip_next</span>
-          </div>
-          <span class="material-icons">repeat</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="mainBox">
+    <img id="img" src="./artworks/blissWave.jpg" alt="Album Art" crossorigin="anonymous" />
+
+    <div id="details">
+      <div id="info">
+        <div id="title">Bliss Wave</div>
+        <div id="artist">Loksii</div>
+      </div>
+
+      <div id="options">
+        <span class="material-icons icon-btn" id="btn-volume">volume_up</span>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
+        <span class="material-icons icon-btn" id="btn-queue">queue_music</span>
+      </div>
+
+      <div id="sliderBox">
+        <input type="range" id="progress" min="0" max="100" step="0.1" value="0" />
+        <div id="timerBox">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
         </div>
       </div>
+
+      <div id="controls">
+        <span class="material-icons icon-btn" id="btn-shuffle">shuffle</span>
+        <div id="controls-main">
+          <span class="material-icons icon-btn" id="btn-prev">skip_previous</span>
+          <span class="material-icons icon-btn" id="btn-play">play_arrow</span>
+          <span class="material-icons icon-btn" id="btn-next">skip_next</span>
+        </div>
+        <span class="material-icons icon-btn" id="btn-repeat">repeat</span>
+      </div>
     </div>
-    
-    <script type="module" src="./script.js" ></script>
-    <script src="./color-thief.global.js" ></script>
-  </body>
+  </div>
+
+  <!-- Playlist Overlay -->
+  <div id="playlist-overlay" class="hidden">
+    <div id="playlist-header">
+      <span class="material-icons icon-btn" id="btn-back">arrow_back</span>
+      <span id="playlist-label">Queue</span>
+    </div>
+    <div id="playlist-list"></div>
+  </div>
+
+  <script src="./playlist.js" type="module"></script>
+  <script src="./script.js" type="module"></script>
+</body>
 </html>
