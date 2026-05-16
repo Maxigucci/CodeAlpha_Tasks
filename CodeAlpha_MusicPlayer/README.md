@@ -1,47 +1,34 @@
 # Music Player
 
-A vanilla JS music player with dynamic album-art theming.
+A vanilla JS music player with dynamic album-art theming and a playlist overlay.
+
+🔗 **Live demo:** [musicplayer-94d32wvrg-maxigucci.vercel.app](https://musicplayer-94d32wvrg-maxigucci.vercel.app)
 
 ---
 
 ## Setup
 
-No build step required. The project runs directly in the browser via a local server.
-
-**Prerequisites**
-
-- A local static file server (e.g. [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code, or `npx serve`)
-- A browser with ES module support (any modern browser)
-
-**File structure expected**
+**File structure**
 
 ```
-project/
+task-4-music-player/
 ├── index.html
 ├── script.js
 ├── playlist.js
 ├── styles.css
-├── Poppins-Regular.ttf
-├── MaterialSymbolsRounded_Filled-Regular.ttf
 ├── songs/
 │   └── *.mp3
 └── artworks/
     └── *.jpg / *.png
 ```
 
-**Running it**
+The player must be served over HTTP — opening `index.html` as a `file://` URL will block audio playback and ColorThief's canvas reads due to CORS restrictions. Use the live demo or serve locally:
 
 ```bash
-# Using serve
 npx serve .
-
-# Or with Python
+# or
 python3 -m http.server 8080
 ```
-
-Then open `http://localhost:PORT` in your browser.
-
-> **Note:** The player must be served over HTTP — opening `index.html` directly as a `file://` URL will block audio playback and ColorThief's canvas reads due to CORS restrictions.
 
 ---
 
@@ -67,10 +54,10 @@ Then open `http://localhost:PORT` in your browser.
   - Dot, `repeat_one` icon — repeat current track
 
 ### Queue
-- Click the **queue** icon (top right) to open the playlist overlay
+- Click the **queue** icon to open the playlist overlay
 - Click any track to load and play it immediately
 - The currently playing track is highlighted with an equaliser icon
-- Click the **back arrow** (top left of overlay) to return to the player
+- Click the **back arrow** to return to the player
 
 ---
 
@@ -87,4 +74,4 @@ Edit `playlist.js` and append an entry to the array:
 }
 ```
 
-Artwork should be square and at least 300×300px for best results with ColorThief theming.
+Artwork should be square and at least 300×300px for best ColorThief results.

@@ -2,22 +2,22 @@
 
 A vanilla JS calculator with three themes and full keyboard support.
 
+🔗 **Live demo:** [calculator-4gtcctv48-maxigucci.vercel.app](https://calculator-4gtcctv48-maxigucci.vercel.app)
+
 ---
 
 ## Setup
 
-No build step required.
+No build step required. Open `index.html` directly in a browser, or visit the live demo above.
 
-**File structure expected**
+**File structure**
 
 ```
-project/
+task-2-calculator/
 ├── index.html
 ├── script.js
 └── style.css
 ```
-
-Open `index.html` directly in a browser — no local server needed since there are no module imports or external assets.
 
 ---
 
